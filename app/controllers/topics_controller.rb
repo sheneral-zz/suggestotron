@@ -1,10 +1,11 @@
 class TopicsController < ApplicationController
-  before_action :set_topic, only: [:show, :edit, :update, :destroy]
+  before_action :set_topic, only: [:show, :edit, :update, :destroy, :upvote, :downvote]
 
   # GET /topics
   # GET /topics.json
   def index
-    @topics = Topic.all
+    @topics = Topic.all.sort { |topic1, topic2| topic2.votes.count<=>topic1.votes.count }
+    #@topics.map { |topic| topic.votes.count }.sort.reverse
   end
 
   # GET /topics/1
@@ -52,8 +53,12 @@ class TopicsController < ApplicationController
   end
 
   def upvote
-    @topic = Topic.find(params[:id])
     @topic.votes.create
+    redirect_to(topics_path)
+  end
+
+  def downvote
+    @topic.votes.first.delete unless @topic.votes.count == 0
     redirect_to(topics_path)
   end
 
