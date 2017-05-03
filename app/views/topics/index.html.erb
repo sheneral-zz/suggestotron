@@ -10,6 +10,9 @@
   </thead>
 
   <tbody>
+    <p>
+      <img src="montage.jpg" title="Montage" width="20%">
+    </p>
     <% @topics.each do |topic| %>
       <tr>
         <td><%= link_to topic.title, topic_path(topic) %></td>
@@ -25,3 +28,4 @@
 <br>
 
 <%= link_to 'New Topic', new_topic_path %>
+<%= link_to 'Log out', destroy_user_session_path, method: :delete %>

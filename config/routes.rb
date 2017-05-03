@@ -1,10 +1,11 @@
 Rails.application.routes.draw do
+  devise_for :users
   resources :topics
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'topics#index'
+
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
@@ -15,12 +16,26 @@ Rails.application.routes.draw do
   # Example resource route (maps HTTP verbs to controller actions automatically):
   # resources :products
 
-  resources :topics do
-    member do
-      post 'upvote'
-      delete 'downvote'
+  resources :homes, only: :index
+
+
+
+  authenticated :user do
+    root to: 'topics#index', as: :authenticated_root
+
+    resources :topics do
+      member do
+        post 'upvote'
+        delete 'downvote'
+      end
     end
+
+    resources :users
+
   end
+
+  root to: "homes#index"
+
 
   # Example resource route with options:
   #   resources :products do

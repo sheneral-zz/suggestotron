@@ -1,5 +1,6 @@
 class Vote < ActiveRecord::Base
   belongs_to :topic
+  belongs_to :user
 
 =begin
 
@@ -14,6 +15,6 @@ class Vote < ActiveRecord::Base
 
 =end
 
-  
+
 
 end
