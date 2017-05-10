@@ -1,3 +1,29 @@
 // Place all the styles related to the Homes controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+body {
+  background-image: url(image-path('/assets/images/montage.jpg'));
+}
+#signup{
+  background-color: red;
+  border: none;
+  color: white;
+  padding: 5px 30px;
+  margin-right: 5px;
+}
+#signup:hover{
+  background-color: black;
+}
+#login{
+  background-color: blue;
+  border: none;
+  color: white;
+  padding: 5px 30px;
+}
+#login:hover{
+  background-color: black;
+}
+.buttons{
+  margin-top: 30px;
+  margin-left: 10%;
+}

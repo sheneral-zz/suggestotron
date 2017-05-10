@@ -1,5 +1,9 @@
 
-<h1>Listing Topics</h1>
+<h1>Suggestions Inbox</h1>
+<p>Make a suggestion here on anything you want! Feel free to vote on topics.
+<br>Topics are listed from most to least popular.</p>
+
+<p>Click on a topic to edit it.</p>
 
 <table>
   <thead>
@@ -13,13 +17,13 @@
     <p>
       <img src="montage.jpg" title="Montage" width="20%">
     </p>
-    <% @topics.each do |topic| %>
+    <% @topics.each do |topic|%>
       <tr>
-        <td><%= link_to topic.title, topic_path(topic) %></td>
+        <td class="topic"><%= link_to topic.title, topic_path(topic) %></td>
         <td><%= pluralize(topic.votes.count, "vote") %></td>
         <td><%= button_to '+1', upvote_topic_path(topic), method: :post %></td>
         <td><%= button_to '-1', downvote_topic_path(topic), method: :delete %></td>
-        <td><%= link_to 'Delete', topic, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td class="delete"><%= link_to 'Delete', topic, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -27,5 +31,5 @@
 
 <br>
 
-<%= link_to 'New Topic', new_topic_path %>
-<%= link_to 'Log out', destroy_user_session_path, method: :delete %>
+<%= link_to 'New Topic', new_topic_path, class: "button" %>
+<%= link_to 'Log out', destroy_user_session_path, method: :delete, class: "button" %>

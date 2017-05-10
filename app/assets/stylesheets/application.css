@@ -13,3 +13,16 @@
  *= require_tree .
  *= require_self
  */
+ body{
+   margin-left: 10%;
+   margin-top: 15%;
+ }
+ #delete{
+   color: red;
+ }
+ .topic a{
+   text-decoration: underline;
+ }
+ .topic a:hover{
+
+ }
