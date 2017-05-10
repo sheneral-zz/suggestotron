@@ -1,4 +1,4 @@
-
+<body style="background-image: url(weather.png); background-repeat: repeat;">
 <h1>Suggestions Inbox</h1>
 <p>Make a suggestion here on anything you want! Feel free to vote on topics.
 <br>Topics are listed from most to least popular.</p>
@@ -15,7 +15,7 @@
 
   <tbody>
     <p>
-      <img src="montage.jpg" title="Montage" width="20%">
+      
     </p>
     <% @topics.each do |topic|%>
       <tr>
@@ -33,3 +33,4 @@
 
 <%= link_to 'New Topic', new_topic_path, class: "button" %>
 <%= link_to 'Log out', destroy_user_session_path, method: :delete, class: "button" %>
+</body>
